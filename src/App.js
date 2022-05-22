@@ -1,17 +1,16 @@
 import { Sidebar } from "./components/Sidebar";
 import { PatientCards } from "./containers/PatientCards";
-import { Patient } from "./components/Patient";
+import ReactLoading from "react-loading";
 import "./App.css";
 import firebase from "./firebase";
 import React, { useEffect, useState } from "react";
-import { QuerySnapshot } from "@firebase/firestore";
 
 function App() {
   const [patients, setPatients] = useState([]);
   const [loading, setLoading] = useState(false);
 
   const ref = firebase.firestore().collection("patients");
-  
+
   function getPatients() {
     setLoading(true);
     ref.onSnapshot((QuerySnapshot) => {
@@ -28,33 +27,17 @@ function App() {
     getPatients();
   }, []);
 
-  /*
-  // sample patient info for the mockup
-  const patients = [
-    {
-      name: "Kevin",
-      age: 22,
-      status: "Stable",
-    },
-    {
-      name: "Nathan",
-      age: 20,
-      status: "Stable",
-    },
-    {
-      name: "Neil",
-      age: 23,
-      status: "Fell Sideways",
-    },
-  ]; */
-
   return (
-    <div className='flex flex-row m-0'>
+    <div className='flex flex-row m-0 font-jakarta'>
       <Sidebar />
       <div className='m-16'>
         {/* I passed in the "patients" variable in the patient
          cards container component. Check src>container for the component*/}
-        <PatientCards patients={patients} />
+        {loading ? (
+          <ReactLoading type='spinningBubbles' color='#334155' />
+        ) : (
+          <PatientCards patients={patients} />
+        )}
       </div>
     </div>
   );
