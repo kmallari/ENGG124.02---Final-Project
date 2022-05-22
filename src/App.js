@@ -5,7 +5,7 @@ import "./App.css";
 import firebase from "./firebase";
 import React, { useEffect, useState } from "react";
 
-function App() {
+const App = () => {
   const [patients, setPatients] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -41,6 +41,6 @@ function App() {
       </div>
     </div>
   );
-}
+};
 
 export default App;

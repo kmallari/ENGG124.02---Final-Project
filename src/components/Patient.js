@@ -2,8 +2,8 @@ export const Patient = ({ name, age, status }) => {
   // I output the information of the patient
   return (
     <div
-      className={`w-56 bg-white rounded-lg p-6 shadow-lg border-2 ${
-        status === "Stable" ? "border-green-600" : "border-red-600"
+      className={`w-56 bg-white rounded-lg p-6 shadow-xl ${
+        status === "Stable" ? "shadow-green-200" : "shadow-red-300"
       } hover:scale-110 transition-all`}
     >
       <div>
