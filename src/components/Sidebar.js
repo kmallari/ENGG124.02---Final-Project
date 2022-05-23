@@ -4,7 +4,7 @@ export const Sidebar = () => {
   return (
     <div className='bg-slate-700 w-64 h-screen p-8 text-white flex flex-col justify-between'>
       <div className='flex flex-col gap-8'>
-        <h1 className='font-bold text-xl'>Hospital System</h1>
+        <h1 className='font-bold text-xl'>Hospital Playlist</h1>
         <hr className='w-3/4' />
         <ul className='flex flex-col gap-6'>
           <li className='font-bold'>Dashboard</li>
