@@ -8,10 +8,9 @@ import React, { useEffect, useState } from "react";
 const App = () => {
   const [patients, setPatients] = useState([]);
   const [loading, setLoading] = useState(false);
-
   const ref = firebase.firestore().collection("patients");
 
-  function getPatients() {
+  const getPatients = () => {
     setLoading(true);
     ref.onSnapshot((QuerySnapshot) => {
       const items = [];
@@ -31,8 +30,6 @@ const App = () => {
     <div className='flex flex-row m-0 font-jakarta'>
       <Sidebar />
       <div className='m-16'>
-        {/* I passed in the "patients" variable in the patient
-         cards container component. Check src>container for the component*/}
         {loading ? (
           <ReactLoading type='spinningBubbles' color='#334155' />
         ) : (
